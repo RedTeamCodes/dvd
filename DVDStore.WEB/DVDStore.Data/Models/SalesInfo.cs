@@ -9,8 +9,13 @@ namespace DVDStore.Data.Models
 {
     public class SalesInfo
     {
+        [Key]
         public int Id { get; set; }
         [Required]
-        public string Sold { get; set; }
+        public virtual DVD DVDId { get; set; }
+        public decimal Sold
+        {
+            get; set;
+        }
     }
 }

@@ -9,12 +9,14 @@ namespace DVDStore.Data.Models
 {
     public class Actor
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         public string Middle { get; set; }
         public string Last { get; set; }
+        public virtual ICollection<DVD> Movies { get; set; }
 
-     
+
     }
 }

@@ -10,9 +10,11 @@ namespace DVDStore.Data.Models
 {
     public class Ratings
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         public string Rating { get; set; }
+        public virtual ICollection<DVD> Movies { get; set; }
 
     }
 }

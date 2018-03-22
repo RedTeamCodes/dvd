@@ -29,7 +29,7 @@ namespace DVDStore.Data.Models
         public System.Data.Entity.DbSet<DVDStore.Data.Models.Ratings> Ratings { get; set; }
         public System.Data.Entity.DbSet<DVDStore.Data.Models.SalesInfo> Sales { get; set; }
 
-
+ 
 
     }
 }
