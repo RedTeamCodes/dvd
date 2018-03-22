@@ -12,6 +12,8 @@ namespace DVDStore.WEB.Controllers
         public ActionResult Index()
         {
             FindAllDVDs findDVDs = new FindAllDVDs();
+
+           
             return View(findDVDs);
         }
 
