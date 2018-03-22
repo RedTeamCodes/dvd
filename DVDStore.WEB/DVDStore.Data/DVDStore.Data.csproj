@@ -55,7 +55,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Actor.cs" />
     <Compile Include="Models\ActorsinMovies.cs" />
-    <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\DVD.cs" />
     <Compile Include="Models\DVDStoreContext.cs" />
     <Compile Include="Models\Genres.cs" />
