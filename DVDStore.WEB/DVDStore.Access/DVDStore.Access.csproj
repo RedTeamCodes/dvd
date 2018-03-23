@@ -78,6 +78,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Methods\DVDDetails.cs" />
+    <Compile Include="Methods\EditingDVD.cs" />
     <Compile Include="Methods\FindAllDVDs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

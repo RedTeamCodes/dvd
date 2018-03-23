@@ -21,6 +21,7 @@ namespace DVDStore.Data.Models
         public string Title { get; set; }
         public DateTime ReleaseDate { get; set; }
         public decimal Price { get; set; }
+
         //public byte[] Picture { get; set; }
         // Foreign Key
         public virtual Ratings RatingsID { get; set; }

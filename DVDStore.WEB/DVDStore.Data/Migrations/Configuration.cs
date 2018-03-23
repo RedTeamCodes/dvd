@@ -10,14 +10,21 @@ namespace DVDStore.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "DVDStore.Data.Models.DVDStoreContext";
+
         }
 
         protected override void Seed(DVDStore.Data.Models.DVDStoreContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
+          //  context.DVD.AddOrUpdate(i => i.Title,
+          //     new Models.DVD
+          //     {
+          //         Title = "When Harry Met Sally",
+          //         ReleaseDate = DateTime.Parse("1989-1-11"),
+          //         Price = 7.99M,
+               
+          //    }
+          //);
         }
     }
 }

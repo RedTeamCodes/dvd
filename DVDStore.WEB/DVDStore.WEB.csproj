@@ -203,6 +203,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\DVD\Index.cshtml" />
+    <Content Include="Views\DVD\Details.cshtml" />
+    <Content Include="Views\DVD\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -221,9 +223,16 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="DVDStore.Access\DVDStore.Access.csproj">
-      <Project>{9c81006a-cc5f-4125-bf2c-2579f705246f}</Project>
+      <Project>{9C81006A-CC5F-4125-BF2C-2579F705246F}</Project>
       <Name>DVDStore.Access</Name>
+    </ProjectReference>
+    <ProjectReference Include="DVDStore.Data\DVDStore.Data.csproj">
+      <Project>{c1a8973f-a459-47e9-b9e2-b195fef96c8c}</Project>
+      <Name>DVDStore.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -10,9 +10,22 @@ namespace DVDStore.WEB.Controllers
     public class DVDController : Controller
     {
 
-        public ActionResult Index()
-        {
-            return View();
+        public ActionResult Index(string filterText)
+        {            
+            FindAllDVDs findDVDs = new FindAllDVDs();
+            IEnumerable<Data.Models.DVD> dvds = findDVDs.FindAllDVD("", "");
+            var Results = dvds;
+
+            if (string.IsNullOrWhiteSpace(filterText) == false)
+            {
+                //search on a specific term
+                Results = dvds.Where(d => d.Title.ToLower().Contains(filterText));
+            }
+
+            return View(Results.ToList());
+
+
         }
+
     }
 }

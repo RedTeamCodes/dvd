@@ -10,39 +10,67 @@ using System.Net;
 using System.Web.Mvc;
 
 
+
 namespace DVDStore.Access.Methods
 {
     public class FindAllDVDs
     {
+       
+
+
 
         private DVDStoreContext db = new DVDStoreContext();
 
+            //List<FindAllDVDs> dVDs = new List<FindAllDVDs>();
+
         public dynamic ViewBag { get; }
 
-        public void FindAllDVD(string DVDTitles, string searchString)
+        public IEnumerable<DVD> FindAllDVD(bool v1, bool v2)
         {
-            var FindDVDS = new List<string>();
+            throw new NotImplementedException();
+        }
 
+        //public object FindAllDVD()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+    public List<string> GetAllTitles(string DVDTitles, string searchString)
+        {
             var DVDQuery = from d in db.DVD
                            orderby d.Title
                            select d.Title;
 
-            FindDVDS.AddRange(DVDQuery.Distinct());
-            ViewBag.DVDTitles = new SelectList(FindDVDS);
+            var count = DVDQuery.Count();
+
+            return DVDQuery.ToList();
+        }
+
+
+        public IEnumerable<DVDStore.Data.Models.DVD> FindAllDVD(string DVDTitles, string searchString)
+        {
 
             var dvds = from dvd in db.DVD
                        select dvd;
+
+            var count = dvds.Count();
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 dvds = dvds.Where(s => s.Title.Contains(searchString));
             }
+
             if (!String.IsNullOrEmpty(DVDTitles))
             {
                 dvds = dvds.Where(x => x.Title == DVDTitles);
 
             }
 
+            return dvds;
+
         }
+
     }
-}
+  
+
+    }

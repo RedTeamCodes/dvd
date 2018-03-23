@@ -94,6 +94,10 @@
     <Compile Include="Migrations\201803221908020_4.Designer.cs">
       <DependentUpon>201803221908020_4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803230045590_6.cs" />
+    <Compile Include="Migrations\201803230045590_6.Designer.cs">
+      <DependentUpon>201803230045590_6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Actor.cs" />
     <Compile Include="Models\ActorsinMovies.cs" />
@@ -120,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803221908020_4.resx">
       <DependentUpon>201803221908020_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803230045590_6.resx">
+      <DependentUpon>201803230045590_6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
