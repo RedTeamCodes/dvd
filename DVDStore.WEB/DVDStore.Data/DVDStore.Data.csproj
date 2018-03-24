@@ -78,25 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Migrations\201803211939270_Initial.cs" />
-    <Compile Include="Migrations\201803211939270_Initial.Designer.cs">
-      <DependentUpon>201803211939270_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803221739211_2.cs" />
-    <Compile Include="Migrations\201803221739211_2.Designer.cs">
-      <DependentUpon>201803221739211_2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803221904351_3.cs" />
-    <Compile Include="Migrations\201803221904351_3.Designer.cs">
-      <DependentUpon>201803221904351_3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803221908020_4.cs" />
-    <Compile Include="Migrations\201803221908020_4.Designer.cs">
-      <DependentUpon>201803221908020_4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803230045590_6.cs" />
-    <Compile Include="Migrations\201803230045590_6.Designer.cs">
-      <DependentUpon>201803230045590_6.cs</DependentUpon>
+    <Compile Include="Migrations\201803232308033_3.cs" />
+    <Compile Include="Migrations\201803232308033_3.Designer.cs">
+      <DependentUpon>201803232308033_3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Actor.cs" />
@@ -113,20 +97,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803211939270_Initial.resx">
-      <DependentUpon>201803211939270_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803221739211_2.resx">
-      <DependentUpon>201803221739211_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803221904351_3.resx">
-      <DependentUpon>201803221904351_3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803221908020_4.resx">
-      <DependentUpon>201803221908020_4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803230045590_6.resx">
-      <DependentUpon>201803230045590_6.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803232308033_3.resx">
+      <DependentUpon>201803232308033_3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

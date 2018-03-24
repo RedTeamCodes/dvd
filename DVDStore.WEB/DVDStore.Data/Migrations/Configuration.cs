@@ -10,7 +10,6 @@ namespace DVDStore.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "DVDStore.Data.Models.DVDStoreContext";
 
         }
 

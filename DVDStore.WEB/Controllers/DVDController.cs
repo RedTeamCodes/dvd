@@ -19,7 +19,7 @@ namespace DVDStore.WEB.Controllers
             if (string.IsNullOrWhiteSpace(filterText) == false)
             {
                 //search on a specific term
-                Results = dvds.Where(d => d.Title.ToLower().Contains(filterText));
+                Results = dvds.Where(d => d.Title.ToLower().Contains(filterText)) ;
             }
 
             return View(Results.ToList());
