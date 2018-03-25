@@ -33,7 +33,19 @@ namespace DVDStore.WEB.Controllers
 
         public ActionResult Details(int? id)
         {
-            
+
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            //DVD movie = db.DVDs.Find(id);
+            //if (movie == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //return View(movie);
+
+
             //if (id == null)
             //{
             //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
