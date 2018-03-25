@@ -30,7 +30,7 @@ namespace DVDStore.WEB.Controllers
         }
             private MovieDBContext db = new MovieDBContext();
 
-        public ActionResult Monsters(int? id)
+        public ActionResult Details(int? id)
         {
 
             if (id == null)
