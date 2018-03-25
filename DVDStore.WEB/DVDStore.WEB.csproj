@@ -196,7 +196,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -208,6 +210,7 @@
     <Content Include="Views\DVD\Edit.cshtml" />
     <Content Include="Views\DVD\Details\Monsters.cshtml" />
     <Content Include="Views\DVD\Details\Test.cshtml" />
+    <Content Include="Views\DVD\1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

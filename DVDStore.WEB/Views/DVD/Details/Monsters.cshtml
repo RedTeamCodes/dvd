@@ -1,16 +1,14 @@
-﻿@model DVDStore.Data.Models.DVD
-
-
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@model IEnumerable<DVDStore.Data.Models.DVD>
 
 
-
-
-
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+@{
+    ViewBag.Title = "Index";
 }
+
+<h2>Index</h2>
+
+<p></p>
