@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DVDStore.Access.Methods;
+using DVDStore.Data.Models;
 
 namespace DVDStore.WEB.Controllers
 {
@@ -26,6 +28,23 @@ namespace DVDStore.WEB.Controllers
 
 
         }
+            private MovieDBContext db = new MovieDBContext();
+
+        public ActionResult Monsters(int? id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            DVDStore.Data.Models.DVD movie = db.DVDs.Find(id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+            return View(movie);
+        }
+
 
     }
 }
