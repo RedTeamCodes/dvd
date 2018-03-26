@@ -25,20 +25,20 @@ namespace DVDStore.WEB.Controllers
         private DVDStoreContext db = new DVDStoreContext();
 
 
-        public ActionResult Picture()
+        public ActionResult GetAllPictures()
         {
-            //Image im = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\003.gif");
+            //Image im = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\002.gif");
             //byte[] pic = ImageToByteArray(im);
 
             //DVD mov = new DVD
             //{
-            //    Title = "City Lights",
-            //    ReleaseDate = new DateTime(1931, 6, 4),
-            //    Price = 4.99M,
-            //    Genre = "Comedy",
-            //    Actor = "Charlie Chaplin",
-            //    Rating = "G",
-            //    Description = "With the aid of a wealthy erratic tippler, a dewy-eyed tramp who has fallen in love with a sightless flower girl accumulates money to be able to help her medically.",
+            //    Title = "Shawshank Redemption",
+            //    ReleaseDate = new DateTime(1993, 2, 4),
+            //    Price = 1.99M,
+            //    Genre = "Thriller",
+            //    Actor = "Morgan Freeman",
+            //    Rating = "R",
+            //    Description = "Andy Dufresne (Tim Robbins) is sentenced to two consecutive life terms in prison for the murders of his wife and her lover and is sentenced to a tough prison. However, only Andy knows he didn't commit the crimes. While there, he forms a friendship with Red (Morgan Freeman), experiences brutality of prison life, adapts, helps the warden, etc., all in 19 years.",
             //    PictureSmall = pic,
             //};
 
@@ -73,9 +73,43 @@ namespace DVDStore.WEB.Controllers
             return View(dvdpics);
         }
 
-        public ActionResult Index(string filterText)
+        public ActionResult GetSinglePicture(int id)
         {
-            Picture();
+            Image img = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\default.gif");
+            byte[] defpic = ImageToByteArray(img);
+
+            var dvdpic = from d in db.DVDs
+                         where d.Id == id
+                         select d.PictureSmall;
+                          
+
+            string pic ="";
+            string imgBase64;
+            string imgDataURL;
+
+
+            foreach (byte[] d in dvdpic)
+            {
+                if (d == null)
+                    imgBase64 = Convert.ToBase64String(defpic);
+                else
+                    imgBase64 = Convert.ToBase64String(d);
+
+                imgDataURL = string.Format("data:image/gif;base64,{0}", imgBase64);
+                pic = imgDataURL;
+            }
+
+
+            ViewBag.ImageData = pic;
+            return View(dvdpic);
+
+
+        }
+   
+
+    public ActionResult Index(string filterText)
+        {
+            GetAllPictures();
            
 
             FindAllDVDs findDVDs = new FindAllDVDs();
@@ -86,7 +120,6 @@ namespace DVDStore.WEB.Controllers
             {
                 //search on a specific term
                 Results = dvds.Where(d => d.Title.ToLower().Contains(filterText)  );
-                Results = dvds.Where(d => d.Genre.ToLower().Contains(filterText));
             }
             //if (string.IsNullOrWhiteSpace(filterText) == false)
             //{
@@ -104,9 +137,10 @@ namespace DVDStore.WEB.Controllers
 
         }
 
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
 
+            GetSinglePicture(id);
 
             FindAllDVDs findDVDs = new FindAllDVDs();
 
