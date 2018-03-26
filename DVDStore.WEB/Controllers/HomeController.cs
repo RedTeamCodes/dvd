@@ -27,18 +27,18 @@ namespace DVDStore.WEB.Controllers
 
         public ActionResult Picture()
         {
-            //Image im = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\002.gif");
+            //Image im = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\003.gif");
             //byte[] pic = ImageToByteArray(im);
 
             //DVD mov = new DVD
             //{
-            //    Title = "Forrest Gump",
-            //    ReleaseDate = new DateTime(1994, 6, 4),
-            //    Price = 3.99M,
-            //    Genre = "Drama",
-            //    Actor = "Tom Hanks",
-            //    Rating = "PG-13",
-            //    Description = "The presidencies of Kennedy and Johnson, Vietnam, Watergate, and other history unfold through the perspective of an Alabama man with an IQ of 75.",
+            //    Title = "City Lights",
+            //    ReleaseDate = new DateTime(1931, 6, 4),
+            //    Price = 4.99M,
+            //    Genre = "Comedy",
+            //    Actor = "Charlie Chaplin",
+            //    Rating = "G",
+            //    Description = "With the aid of a wealthy erratic tippler, a dewy-eyed tramp who has fallen in love with a sightless flower girl accumulates money to be able to help her medically.",
             //    PictureSmall = pic,
             //};
 
@@ -85,8 +85,19 @@ namespace DVDStore.WEB.Controllers
             if (string.IsNullOrWhiteSpace(filterText) == false)
             {
                 //search on a specific term
-                Results = dvds.Where(d => d.Title.ToLower().Contains(filterText));
+                Results = dvds.Where(d => d.Title.ToLower().Contains(filterText)  );
+                Results = dvds.Where(d => d.Genre.ToLower().Contains(filterText));
             }
+            //if (string.IsNullOrWhiteSpace(filterText) == false)
+            //{
+            //    //search on a specific term
+            //    Results = dvds.Where(d => d.Rating.ToLower().Contains(filterText));
+            //}
+            //else if (string.IsNullOrWhiteSpace(filterText) == false)
+            //{
+            //    //search on a specific term
+                
+            //} 
 
             return View(Results.ToList());
 
