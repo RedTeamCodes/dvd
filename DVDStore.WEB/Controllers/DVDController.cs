@@ -28,7 +28,7 @@ namespace DVDStore.WEB.Controllers
 
 
         }
-            private MovieDBContext db = new MovieDBContext();
+            private DVDStoreContext db = new DVDStoreContext();
 
         public ActionResult Details(int? id)
         {

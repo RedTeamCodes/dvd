@@ -7,14 +7,77 @@ using System.Web;
 using System.Web.Mvc;
 using DVDStore.Access.Methods;
 using DVDStore.Data.Models;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace DVDStore.WEB.Controllers
 {
     public class HomeController : Controller
     {
 
+        static public byte[] ImageToByteArray(Image img)
+        {
+            MemoryStream ms = new MemoryStream();
+            img.Save(ms, ImageFormat.Gif);
+            return ms.ToArray();
+        }
+        private DVDStoreContext db = new DVDStoreContext();
+
+
+        public ActionResult Picture()
+        {
+            //Image im = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\002.gif");
+            //byte[] pic = ImageToByteArray(im);
+
+            //DVD mov = new DVD
+            //{
+            //    Title = "Forrest Gump",
+            //    ReleaseDate = new DateTime(1994, 6, 4),
+            //    Price = 3.99M,
+            //    Genre = "Drama",
+            //    Actor = "Tom Hanks",
+            //    Rating = "PG-13",
+            //    Description = "The presidencies of Kennedy and Johnson, Vietnam, Watergate, and other history unfold through the perspective of an Alabama man with an IQ of 75.",
+            //    PictureSmall = pic,
+            //};
+
+            //db.DVDs.Add(mov);
+            //db.SaveChanges();
+
+            Image img = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\default.gif");
+            byte[] defpic = ImageToByteArray(img);
+
+
+            var dvdpics = from d in db.DVDs
+                          select d;
+
+
+            string[] pics = new string[1000];
+            string imgBase64;
+            string imgDataURL;
+
+            foreach (DVD d in dvdpics)
+            {
+                if (d.PictureSmall == null)
+                    imgBase64 = Convert.ToBase64String(defpic);
+                else
+                    imgBase64 = Convert.ToBase64String(d.PictureSmall);
+
+                imgDataURL = string.Format("data:image/gif;base64,{0}", imgBase64);
+                pics[d.Id] = imgDataURL;
+            }
+
+
+            ViewBag.ImageData = pics;
+            return View(dvdpics);
+        }
+
         public ActionResult Index(string filterText)
         {
+            Picture();
+           
+
             FindAllDVDs findDVDs = new FindAllDVDs();
             IEnumerable<Data.Models.DVD> dvds = findDVDs.FindAllDVD("", "");
             var Results = dvds;
@@ -29,33 +92,22 @@ namespace DVDStore.WEB.Controllers
 
 
         }
-        private MovieDBContext db = new MovieDBContext();
 
         public ActionResult Details(int? id)
         {
 
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            //DVD movie = db.DVDs.Find(id);
-            //if (movie == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            //return View(movie);
 
+            FindAllDVDs findDVDs = new FindAllDVDs();
 
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            //DVDStore.Data.Models.DVD movie = db.DVDs.Find(id);
-            //if (movie == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            return View();
+            DVD SingleDVD = new DVD();
+
+            if (id != null)
+            {
+                
+                 SingleDVD = findDVDs.GetDVDById(id);
+
+            }
+            return View(SingleDVD);
         }
 
     }

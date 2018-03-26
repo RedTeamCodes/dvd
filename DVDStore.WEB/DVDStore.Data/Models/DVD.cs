@@ -24,6 +24,8 @@ namespace DVDStore.Data.Models
         public string Genre { get; set; }
         public string Actor { get; set; }
         public string Rating { get; set; }
+        public string Description { get; set; }
+        public byte[] PictureSmall { get; set; }
         //public byte[] Picture { get; set; }
         // Foreign Key
         public virtual Ratings RatingsID { get; set; }
@@ -36,8 +38,8 @@ namespace DVDStore.Data.Models
     }
 
     
-    public class MovieDBContext : DbContext
-    {
-        public DbSet<DVD> DVDs { get; set; }
-    }
+    //public class MovieDBContext : DbContext
+    //{
+    //    public DbSet<DVD> DVDs { get; set; }
+    //}
 }

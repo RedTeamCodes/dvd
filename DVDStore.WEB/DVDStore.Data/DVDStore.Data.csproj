@@ -78,9 +78,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Migrations\201803232308033_3.cs" />
-    <Compile Include="Migrations\201803232308033_3.Designer.cs">
-      <DependentUpon>201803232308033_3.cs</DependentUpon>
+    <Compile Include="Migrations\201803261542344_InitialCreate.cs" />
+    <Compile Include="Migrations\201803261542344_InitialCreate.Designer.cs">
+      <DependentUpon>201803261542344_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803261717190_ShawshankRedemption.cs" />
+    <Compile Include="Migrations\201803261717190_ShawshankRedemption.Designer.cs">
+      <DependentUpon>201803261717190_ShawshankRedemption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803261717429_Shawshank.cs" />
+    <Compile Include="Migrations\201803261717429_Shawshank.Designer.cs">
+      <DependentUpon>201803261717429_Shawshank.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Actor.cs" />
@@ -97,8 +105,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803232308033_3.resx">
-      <DependentUpon>201803232308033_3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803261542344_InitialCreate.resx">
+      <DependentUpon>201803261542344_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803261717190_ShawshankRedemption.resx">
+      <DependentUpon>201803261717190_ShawshankRedemption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803261717429_Shawshank.resx">
+      <DependentUpon>201803261717429_Shawshank.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -17,14 +17,14 @@ namespace DVDStore.Data.Models
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
 
-        public DVDStoreContext() : base("DVDStoreContext")
+        public DVDStoreContext() : base("name=DVDStoreContext")
         {
             this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
         }
 
         public System.Data.Entity.DbSet<DVDStore.Data.Models.Actor> Actor { get; set; }
         public System.Data.Entity.DbSet<DVDStore.Data.Models.ActorsinMovies> ActorsinMovies { get; set; }
-        public System.Data.Entity.DbSet<DVDStore.Data.Models.DVD> DVD { get; set; }
+        public System.Data.Entity.DbSet<DVDStore.Data.Models.DVD> DVDs { get; set; }
         public System.Data.Entity.DbSet<DVDStore.Data.Models.Genres> Genres { get; set; }
         public System.Data.Entity.DbSet<DVDStore.Data.Models.Ratings> Ratings { get; set; }
         public System.Data.Entity.DbSet<DVDStore.Data.Models.SalesInfo> Sales { get; set; }

@@ -8,6 +8,10 @@ using System.Data;
 using System.Data.Entity;
 using System.Net;
 using System.Web.Mvc;
+//using MvcMovie.Models;
+//using System.IO;
+//using System.Drawing;
+//using System.Drawing.Imaging;
 
 
 
@@ -37,7 +41,7 @@ namespace DVDStore.Access.Methods
 
     public List<string> GetAllTitles(string DVDTitles, string searchString)
         {
-            var DVDQuery = from d in db.DVD
+            var DVDQuery = from d in db.DVDs
                            orderby d.Title
                            select d.Title;
 
@@ -50,7 +54,7 @@ namespace DVDStore.Access.Methods
         public IEnumerable<DVDStore.Data.Models.DVD> FindAllDVD(string DVDTitles, string searchString)
         {
 
-            var dvds = from dvd in db.DVD
+            var dvds = from dvd in db.DVDs
                        select dvd;
 
             var count = dvds.Count();
@@ -69,6 +73,34 @@ namespace DVDStore.Access.Methods
             return dvds;
 
         }
+
+        public DVDStore.Data.Models.DVD GetDVDById(int? id)
+        {
+            //if not null return something
+
+            DVD DVDQuery = db.DVDs.Find(id);
+                //from d in db.DVD
+                //           where d.Id == id
+                //           select d
+               
+
+            return DVDQuery;
+
+            //query and return it
+            //when calling details callt his method 
+            //pass this type GetDVDBy ID to the Controller
+            //from Controller to the View 
+
+
+
+        }
+
+        //static public byte[] ImageToByteArray(Image img)
+        //{
+        //    MemoryStream ms = new MemoryStream();
+        //    img.Save(ms, ImageFormat.Gif);
+        //    return ms.ToArray();
+        //}
 
     }
   
