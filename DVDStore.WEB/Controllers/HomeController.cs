@@ -27,18 +27,18 @@ namespace DVDStore.WEB.Controllers
 
         public ActionResult GetAllPictures()
         {
-            //Image im = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\002.gif");
+            //Image im = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\006.gif");
             //byte[] pic = ImageToByteArray(im);
 
             //DVD mov = new DVD
             //{
-            //    Title = "Shawshank Redemption",
-            //    ReleaseDate = new DateTime(1993, 2, 4),
-            //    Price = 1.99M,
-            //    Genre = "Thriller",
-            //    Actor = "Morgan Freeman",
-            //    Rating = "R",
-            //    Description = "Andy Dufresne (Tim Robbins) is sentenced to two consecutive life terms in prison for the murders of his wife and her lover and is sentenced to a tough prison. However, only Andy knows he didn't commit the crimes. While there, he forms a friendship with Red (Morgan Freeman), experiences brutality of prison life, adapts, helps the warden, etc., all in 19 years.",
+            //    Title = "Back to the Future",
+            //    ReleaseDate = new DateTime(1985, 10, 11),
+            //    Price = 1.59M,
+            //    Genre = "Adventure",
+            //    Actor = "Michael J. Fox",
+            //    Rating = "PG",
+            //    Description = "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.",
             //    PictureSmall = pic,
             //};
 
