@@ -9,8 +9,9 @@
     ViewBag.Title = "Search for DVD's";
 }
 
-<h2>Index</h2>
-
+<h2>DVDStore</h2>
+<h4>Welcome to our <b>DVDStore</b>. Take a look at some of our great titles and browse, search, and view details.</h4>
+<hr />
 <p></p>
 
 
@@ -19,7 +20,7 @@
 {
     <p>
 
-        Title: @Html.TextBox("FilterText") <br />
+        Search for DVD Titles: @Html.TextBox("FilterText")
         <input type="submit" value="Filter" />
     </p>
 
@@ -55,29 +56,29 @@
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            <img src="@ViewBag.ImageData[item.Id]" width="100" height="150" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReleaseDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rating)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id = @item.Id })
-        </td>
-    </tr>
+        <tr>
+            <td>
+                <img src="@ViewBag.ImageData[item.Id]" width="100" height="150" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = @item.Id })
+            </td>
+        </tr>
     }
 
 </table>
