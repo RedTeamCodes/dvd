@@ -70,12 +70,14 @@
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Get))
 {
-    <p>
+<p>
 
-        Search for DVD Titles: @Html.TextBox("FilterText")
-        <input type="submit" value="Filter" /> <br />
-
-    </p>
+    Search for DVD Titles: @Html.TextBox("FilterText")
+    <input type="submit" value="Filter" /> <br />
+    &nbsp;OR&nbsp;
+    Search for DVD by Actor's Last Name: @Html.TextBox("LastName")
+    <input type="submit" value="Find" />
+</p>
 
 
 }

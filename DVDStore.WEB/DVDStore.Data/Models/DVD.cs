@@ -41,7 +41,7 @@ namespace DVDStore.Data.Models
         // Foreign Key
         public virtual SalesInfo SalesInfoID { get; set; }
         //Foreign Key
-        public virtual ICollection<Actor> Actors { get; set; }
+        public virtual List<Actor> Actors { get; set; }
     }
 
     
