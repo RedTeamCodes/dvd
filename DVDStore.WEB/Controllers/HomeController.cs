@@ -18,17 +18,17 @@ namespace DVDStore.WEB.Controllers
 
         public void LoadRows()
         {
-            Image im = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\006.gif");
+            Image im = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\002.gif");
             byte[] pic = ImageToByteArray(im);
 
             DVD mov1 = new DVD
             {
-                Title = "Back to the Future",
+                Title = "Go",
                 ReleaseDate = new DateTime(1985, 10, 11),
                 Price = 1.59M,
                 Genre = "Drama",
                 Actor = "Michael J. Fox, Christopher Lloyd, Lea Thompson",
-                Rating = "PG",
+                Rating = "R",
                 Description = "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.",
                 PictureSmall = pic,
                 Actors = new List<Actor>()
@@ -37,9 +37,9 @@ namespace DVDStore.WEB.Controllers
 
             Actor act1 = new Actor
             {
-                First = "Michael",
-                Middle = "J.",
-                Last = "Fox",
+                First = "Mel",
+                Middle = "",
+                Last = "Gibson",
                 Movies = new List<DVD>()
 
             };
@@ -72,17 +72,17 @@ namespace DVDStore.WEB.Controllers
 
 
 
-            Image im2 = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\003.gif");
+            Image im2 = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\004.gif");
             byte[] pic2 = ImageToByteArray(im2);
 
             DVD mov2 = new DVD
             {
-                Title = "Back to the Future 2",
+                Title = "Testing",
                 ReleaseDate = new DateTime(1988, 10, 11),
                 Price = 2.59M,
                 Genre = "Thriller",
                 Actor = "Michael J. Fox",
-                Rating = "PG",
+                Rating = "G",
                 Description = "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.",
                 PictureSmall = pic2,
                 Actors = new List<Actor>()
@@ -166,8 +166,20 @@ namespace DVDStore.WEB.Controllers
 
             GenreLst.AddRange(GenreQry.Distinct());
             ViewBag.movieGenre = new SelectList(GenreLst);
-
  
+        }
+
+        public void SearchRating()
+        {
+            var RatingLst = new List<string>();
+
+            var RatingQry = from d in db.DVDs
+                           orderby d.Rating
+                           select d.Rating;
+
+            RatingLst.AddRange(RatingQry.Distinct());
+            ViewBag.movieRating = new SelectList(RatingLst);
+
         }
 
         public ActionResult GetAllPictures()
@@ -253,11 +265,12 @@ namespace DVDStore.WEB.Controllers
 
      
 
-    public ActionResult Index(string filterText, string movieGenre, string LastName)
+    public ActionResult Index(string filterText, string movieGenre, string movieRating, string LastName)
         {
 
             //LoadRows();
             SearchGenre();
+            SearchRating();
             GetAllPictures();
             
 
@@ -285,15 +298,24 @@ namespace DVDStore.WEB.Controllers
             }
 
 
-            var movies = from m in db.DVDs
-                         select m;
+            //Results = from m in db.DVDs
+            //             where m.Genre == movieGenre
+            //             select m;
 
             if (!string.IsNullOrEmpty(movieGenre))
             {
-                movies = movies.Where(x => x.Genre == movieGenre);
+                Results = dvds.Where(x => x.Genre == movieGenre);
             }
 
+            if (!string.IsNullOrEmpty(movieRating))
+            {
+                Results = dvds.Where(x => x.Rating == movieRating);
+            }
+
+
+
             return View(Results.ToList());
+            
 
 
         }
