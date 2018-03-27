@@ -26,7 +26,7 @@ namespace DVDStore.WEB.Controllers
                 Title = "Back to the Future",
                 ReleaseDate = new DateTime(1985, 10, 11),
                 Price = 1.59M,
-                Genre = "Adventure",
+                Genre = "Drama",
                 Actor = "Michael J. Fox, Christopher Lloyd, Lea Thompson",
                 Rating = "PG",
                 Description = "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.",
@@ -80,7 +80,7 @@ namespace DVDStore.WEB.Controllers
                 Title = "Back to the Future 2",
                 ReleaseDate = new DateTime(1988, 10, 11),
                 Price = 2.59M,
-                Genre = "Adventure",
+                Genre = "Thriller",
                 Actor = "Michael J. Fox",
                 Rating = "PG",
                 Description = "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.",
@@ -156,7 +156,7 @@ namespace DVDStore.WEB.Controllers
         private DVDStoreContext db = new DVDStoreContext();
 
 
-        public ActionResult SearchGenre(string movieGenre)
+        public void SearchGenre()
         {
             var GenreLst = new List<string>();
 
@@ -167,15 +167,7 @@ namespace DVDStore.WEB.Controllers
             GenreLst.AddRange(GenreQry.Distinct());
             ViewBag.movieGenre = new SelectList(GenreLst);
 
-            var movies = from m in db.DVDs
-                         select m;
-
-            if (!string.IsNullOrEmpty(movieGenre))
-            {
-                movies = movies.Where(x => x.Genre == movieGenre);
-            }
-
-            return View(movies);
+ 
         }
 
         public ActionResult GetAllPictures()
@@ -261,10 +253,11 @@ namespace DVDStore.WEB.Controllers
 
      
 
-    public ActionResult Index(string filterText, string LastName)
+    public ActionResult Index(string filterText, string movieGenre, string LastName)
         {
 
-            LoadRows();
+            //LoadRows();
+            SearchGenre();
             GetAllPictures();
             
 
@@ -291,6 +284,14 @@ namespace DVDStore.WEB.Controllers
                           select d;
             }
 
+
+            var movies = from m in db.DVDs
+                         select m;
+
+            if (!string.IsNullOrEmpty(movieGenre))
+            {
+                movies = movies.Where(x => x.Genre == movieGenre);
+            }
 
             return View(Results.ToList());
 
