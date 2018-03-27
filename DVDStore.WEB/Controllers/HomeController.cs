@@ -25,6 +25,28 @@ namespace DVDStore.WEB.Controllers
         private DVDStoreContext db = new DVDStoreContext();
 
 
+        public ActionResult SearchGenre(string movieGenre)
+        {
+            var GenreLst = new List<string>();
+
+            var GenreQry = from d in db.DVDs
+                           orderby d.Genre
+                           select d.Genre;
+
+            GenreLst.AddRange(GenreQry.Distinct());
+            ViewBag.movieGenre = new SelectList(GenreLst);
+
+            var movies = from m in db.DVDs
+                         select m;
+
+            if (!string.IsNullOrEmpty(movieGenre))
+            {
+                movies = movies.Where(x => x.Genre == movieGenre);
+            }
+
+            return View(movies);
+        }
+
         public ActionResult GetAllPictures()
         {
             //Image im = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\006.gif");
@@ -105,12 +127,15 @@ namespace DVDStore.WEB.Controllers
 
 
         }
-   
+
+     
 
     public ActionResult Index(string filterText)
         {
             GetAllPictures();
-           
+            
+
+
 
             FindAllDVDs findDVDs = new FindAllDVDs();
             IEnumerable<Data.Models.DVD> dvds = findDVDs.FindAllDVD("", "");
@@ -121,6 +146,12 @@ namespace DVDStore.WEB.Controllers
                 //search on a specific term
                 Results = dvds.Where(d => d.Title.ToLower().Contains(filterText)  );
             }
+
+            //if (string.IsNullOrWhiteSpace(filterActor)== false)
+            //{
+            //    //search on a specific term
+            //    Results = dvds.Where(d => d.Actor.ToLower().Contains(filterActor));
+            //}
             //if (string.IsNullOrWhiteSpace(filterText) == false)
             //{
             //    //search on a specific term
@@ -129,13 +160,23 @@ namespace DVDStore.WEB.Controllers
             //else if (string.IsNullOrWhiteSpace(filterText) == false)
             //{
             //    //search on a specific term
-                
-            //} 
 
+            //} 
+            //SearchGenre();
             return View(Results.ToList());
 
 
         }
+
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
+
+
 
         public ActionResult Details(int id)
         {
@@ -156,4 +197,7 @@ namespace DVDStore.WEB.Controllers
         }
 
     }
+
+
+
 }
