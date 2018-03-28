@@ -1,14 +1,35 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    /*padding-top: 0px;
+    padding-bottom: 0px;*/
+
    
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
-    padding-right: 15px; 
+    padding-right: 15px;
+    color: black;
+    background-color: #d0d8d3;
+    letter-spacing: 1.2px;
+    padding-top: 0px;
+}
 
+
+p {
+    font-size: 16px;
+}
+
+th {
+    font-size:18px;
+}
+
+td {
+    font-size: 14px;
+    font-family: 'Signika', sans-serif;
+}
+a {
+    color: darkred;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 

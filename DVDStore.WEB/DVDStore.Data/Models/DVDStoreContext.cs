@@ -22,7 +22,7 @@ namespace DVDStore.Data.Models
             this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
         }
 
-        public System.Data.Entity.DbSet<DVDStore.Data.Models.Actor> Actor { get; set; }
+        public System.Data.Entity.DbSet<DVDStore.Data.Models.Actor> Actors { get; set; }
         public System.Data.Entity.DbSet<DVDStore.Data.Models.ActorsinMovies> ActorsinMovies { get; set; }
         public System.Data.Entity.DbSet<DVDStore.Data.Models.DVD> DVDs { get; set; }
         public System.Data.Entity.DbSet<DVDStore.Data.Models.Genres> Genres { get; set; }
