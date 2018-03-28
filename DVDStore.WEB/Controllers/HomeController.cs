@@ -18,18 +18,18 @@ namespace DVDStore.WEB.Controllers
 
         public void LoadRows()
         {
-            Image im = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\002.gif");
+            Image im = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\005.gif");
             byte[] pic = ImageToByteArray(im);
 
             DVD mov1 = new DVD
             {
-                Title = "Go",
-                ReleaseDate = new DateTime(1985, 10, 11),
-                Price = 1.59M,
-                Genre = "Drama",
-                Actor = "Michael J. Fox, Christopher Lloyd, Lea Thompson",
-                Rating = "R",
-                Description = "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.",
+                Title = "Spirited Away",
+                ReleaseDate = new DateTime(1993, 09,04),
+                Price = 2.59M,
+                Genre = "Anime",
+                Actor = " Daveigh Chase, Suzanne Pleshette, Miyu Irino",
+                Rating = "PG",
+                Description = "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.",
                 PictureSmall = pic,
                 Actors = new List<Actor>()
             };
@@ -37,9 +37,9 @@ namespace DVDStore.WEB.Controllers
 
             Actor act1 = new Actor
             {
-                First = "Mel",
+                First = "Daveigh",
                 Middle = "",
-                Last = "Gibson",
+                Last = "Chase",
                 Movies = new List<DVD>()
 
             };
@@ -48,9 +48,9 @@ namespace DVDStore.WEB.Controllers
 
             Actor act2 = new Actor
             {
-                First = "Christopher",
+                First = "Suzanne",
                 Middle = "",
-                Last = "Lloyd",
+                Last = "Pleshette",
                 Movies = new List<DVD>()
 
             };
@@ -59,9 +59,9 @@ namespace DVDStore.WEB.Controllers
 
             Actor act3 = new Actor
             {
-                First = "Lea",
+                First = "Miyu",
                 Middle = "",
-                Last = "Thompson",
+                Last = "Irino",
                 Movies = new List<DVD>()
 
             };
@@ -72,18 +72,18 @@ namespace DVDStore.WEB.Controllers
 
 
 
-            Image im2 = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\004.gif");
+            Image im2 = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\003.gif");
             byte[] pic2 = ImageToByteArray(im2);
 
             DVD mov2 = new DVD
             {
-                Title = "Testing",
-                ReleaseDate = new DateTime(1988, 10, 11),
+                Title = "City Lights",
+                ReleaseDate = new DateTime(1931, 10, 11),
                 Price = 2.59M,
-                Genre = "Thriller",
-                Actor = "Michael J. Fox",
+                Genre = "Comedy",
+                Actor = "Charles Chaplin, Virginia Cherrill, Florence Lee",
                 Rating = "G",
-                Description = "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.",
+                Description = "With the aid of a wealthy erratic tippler, a dewy-eyed tramp who has fallen in love with a sightless flower girl accumulates money to be able to help her medically.",
                 PictureSmall = pic2,
                 Actors = new List<Actor>()
             };
@@ -91,9 +91,9 @@ namespace DVDStore.WEB.Controllers
 
             Actor act4 = new Actor
             {
-                First = "Another",
-                Middle = "A.",
-                Last = "PersonA",
+                First = "Charlie",
+                Middle = "",
+                Last = "Chaplin",
                 Movies = new List<DVD>()
 
             };
@@ -102,9 +102,9 @@ namespace DVDStore.WEB.Controllers
 
             Actor act5 = new Actor
             {
-                First = "Another",
-                Middle = "B.",
-                Last = "PersonB",
+                First = "Virginia",
+                Middle = "",
+                Last = "Cherrill",
                 Movies = new List<DVD>()
 
             };
@@ -113,9 +113,9 @@ namespace DVDStore.WEB.Controllers
 
             Actor act6 = new Actor
             {
-                First = "Another",
-                Middle = "C.",
-                Last = "PersonC",
+                First = "Florence",
+                Middle = "",
+                Last = "Lee",
                 Movies = new List<DVD>()
 
             };
