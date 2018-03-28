@@ -18,7 +18,7 @@ namespace DVDStore.WEB.Controllers
 
         public void LoadRows()
         {
-            Image im = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\005.gif");
+            Image im = Image.FromFile(@"C:\Users\Cleveland Codes\Pictures\images\005.gif");
             byte[] pic = ImageToByteArray(im);
 
             DVD mov1 = new DVD
@@ -72,7 +72,7 @@ namespace DVDStore.WEB.Controllers
 
 
 
-            Image im2 = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\003.gif");
+            Image im2 = Image.FromFile(@"C:\Users\Cleveland Codes\Pictures\images\003.gif");
             byte[] pic2 = ImageToByteArray(im2);
 
             DVD mov2 = new DVD
@@ -202,7 +202,7 @@ namespace DVDStore.WEB.Controllers
             //db.DVDs.Add(mov);
             //db.SaveChanges();
 
-            Image img = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\default.gif");
+            Image img = Image.FromFile(@"C:\Users\Cleveland Codes\Pictures\images\default.gif");
             byte[] defpic = ImageToByteArray(img);
 
 
@@ -232,7 +232,7 @@ namespace DVDStore.WEB.Controllers
 
         public ActionResult GetSinglePicture(int id)
         {
-            Image img = Image.FromFile(@"C:\Users\ClevelandCodes\Pictures\images\default.gif");
+            Image img = Image.FromFile(@"C:\Users\Cleveland Codes\Pictures\images\default.gif");
             byte[] defpic = ImageToByteArray(img);
 
             var dvdpic = from d in db.DVDs
